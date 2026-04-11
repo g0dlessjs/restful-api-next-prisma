@@ -9,13 +9,8 @@ export async function GET(request: NextRequest) {
       { description: "Task 1", completed: true },
       { description: "Task 2", completed: true },
       { description: "Task 3", completed: true },
-      { description: "Task 4", completed: false },
-      { description: "Task 5", completed: false },
-      { description: "Task 6" },
-      { description: "Task 7" },
-      { description: "Task 8", completed: true },
-      { description: "Task 9" },
-      { description: "Task 10", completed: false },
+      { description: "Task 4" },
+      { description: "Task 5" },
     ],
   });
 

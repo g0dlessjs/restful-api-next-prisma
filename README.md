@@ -12,6 +12,8 @@ docker-compose up -d
 
 3 - Reemplazar las variables de entorno
 
+4 - Ejecutar el seed [crear la bse de datos local](localhost:3000/api/seed)
+
 # Prisma commands
 
 - Inicializar prisma
