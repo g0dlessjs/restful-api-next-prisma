@@ -33,10 +33,12 @@ const postSchema = yup.object({
 
 export async function POST(request: Request) {
   try {
-    const body = await postSchema.validate(await request.json());
+    const { description, completed } = await postSchema.validate(
+      await request.json(),
+    );
 
     const todo = await prisma.todo.create({
-      data: body,
+      data: { description, completed },
     });
 
     return NextResponse.json(todo);
