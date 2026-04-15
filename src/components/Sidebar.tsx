@@ -1,8 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CiBookmarkCheck, CiLogout } from "react-icons/ci";
+import { IoCalendar, IoLogOut } from "react-icons/io5";
 import { IoLogoReact } from "react-icons/io5";
 import { SidebarItem } from "./SidebarItem";
+
+const menuItem = [
+  {
+    path: "/dashboard",
+    icon: <IoCalendar size={30} />,
+    title: "Dashboard",
+  },
+  {
+    path: "/dashboard/rest-todos",
+    icon: <IoCalendar size={30} />,
+    title: "Rest TODOS",
+  },
+  {
+    path: "/dashboard/server-todos",
+    icon: <IoCalendar size={30} />,
+    title: "Server Actions",
+  },
+];
 
 export const Sidebar = () => {
   return (
@@ -37,13 +55,15 @@ export const Sidebar = () => {
         <ul className="space-y-2 tracking-wide mt-8">
           {/* TODO: src/components <SidebarItem /> */}
           {/* Active className: text-white bg-gradient-to-r from-sky-600 to-cyan-400 */}
-          <SidebarItem />
+          {menuItem.map((item) => (
+            <SidebarItem key={item.path} {...item} />
+          ))}
         </ul>
       </div>
 
       <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t border-slate-700">
         <button className="px-4 py-3 flex items-center space-x-4 rounded-xl text-slate-300 hover:bg-slate-700/50 hover:shadow-md hover:text-red-400 transition-all group">
-          <CiLogout />
+          <IoLogOut />
           <span className="group-hover:text-red-400 font-medium">Logout</span>
         </button>
       </div>
