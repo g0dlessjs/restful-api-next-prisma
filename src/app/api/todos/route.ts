@@ -53,3 +53,22 @@ export async function POST(request: Request) {
     );
   }
 }
+
+export async function DELETE(request: Request) {
+  try {
+    await prisma.todo.deleteMany({
+      where: { completed: true },
+    });
+
+    return NextResponse.json("Todos completados eliminados");
+  } catch (error) {
+    return NextResponse.json(
+      {
+        message:
+          "Error eliminando los TODOs. Asegúrate de enviar { description: '...' }",
+        error,
+      },
+      { status: 400 },
+    );
+  }
+}
