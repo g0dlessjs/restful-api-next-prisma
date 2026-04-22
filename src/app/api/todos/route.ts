@@ -64,8 +64,7 @@ export async function DELETE(request: Request) {
   } catch (error) {
     return NextResponse.json(
       {
-        message:
-          "Error eliminando los TODOs. Asegúrate de enviar { description: '...' }",
+        message: "Error al eliminar los TODOs completados",
         error,
       },
       { status: 400 },

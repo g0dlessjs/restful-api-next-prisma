@@ -7,13 +7,12 @@ export const metadata: Metadata = {
   description: "Listado de todos",
 };
 
-export default async function RestTodosPage() {
+export default async function ServerTodosPage() {
   const todos = await prisma.todo.findMany({ orderBy: { description: "asc" } });
 
   return (
     <>
-      <span className="text-3xl mb-10 block text-center">Rest API</span>
-
+      <span className="text-3xl mb-10 block text-center">Server Actions</span>
       <div className="pb-10">
         <NewTodo />
       </div>
