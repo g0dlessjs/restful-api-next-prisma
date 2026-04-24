@@ -1,6 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { IoCalendar, IoLogOut } from "react-icons/io5";
+import {
+  IoCalendar,
+  IoCheckmarkCircle,
+  IoCode,
+  IoLogOut,
+  IoMedical,
+} from "react-icons/io5";
 import { IoLogoReact } from "react-icons/io5";
 import { SidebarItem } from "./SidebarItem";
 
@@ -12,13 +18,18 @@ const menuItem = [
   },
   {
     path: "/dashboard/rest-todos",
-    icon: <IoCalendar size={30} />,
+    icon: <IoCheckmarkCircle size={30} />,
     title: "Rest TODOS",
   },
   {
     path: "/dashboard/server-todos",
-    icon: <IoCalendar size={30} />,
+    icon: <IoCode size={30} />,
     title: "Server Actions",
+  },
+  {
+    path: "/dashboard/cookies",
+    icon: <IoMedical size={30} />,
+    title: "Cookies",
   },
 ];
 
@@ -40,14 +51,14 @@ export const Sidebar = () => {
         <div className="mt-8 text-center">
           {/* Next/Image */}
           <Image
-            src="https://images.unsplash.com/photo-1542909168-82c3e7fdca5c"
+            src="https://avatars.githubusercontent.com/u/128999319?s=400&u=c76b83328ae8be8e8d1619f8f4cf9ee76de1d96b&v=4"
             alt=""
             className="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28 ring-4 ring-cyan-900/50"
             width={50}
             height={50}
           />
           <h5 className="hidden mt-4 text-xl font-semibold text-slate-200 lg:block">
-            Máximo Décimo Meridio
+            Raton Perez
           </h5>
           <span className="hidden text-slate-400 lg:block">Admin</span>
         </div>
