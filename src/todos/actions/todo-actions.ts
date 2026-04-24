@@ -4,10 +4,16 @@ import { Todo } from "@/generated/prisma";
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 
+const sleep = async (seconds: number = 2) => {
+  return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+};
+
 export const toggleTodo = async (
   id: string,
   completed: boolean,
 ): Promise<Todo> => {
+  await sleep(3);
+
   const todo = await prisma?.todo.findFirst({ where: { id } });
 
   if (!todo) {
