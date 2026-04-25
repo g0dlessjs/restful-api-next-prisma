@@ -6,6 +6,7 @@ import {
   IoCode,
   IoLogOut,
   IoMedical,
+  IoWalletOutline,
 } from "react-icons/io5";
 import { IoLogoReact } from "react-icons/io5";
 import { SidebarItem } from "./SidebarItem";
@@ -31,6 +32,11 @@ const menuItem = [
     icon: <IoMedical size={30} />,
     title: "Cookies",
   },
+  {
+    path: "/dashboard/products",
+    icon: <IoWalletOutline size={30} />,
+    title: "Productos",
+  },
 ];
 
 export const Sidebar = () => {
@@ -42,7 +48,7 @@ export const Sidebar = () => {
           <Link className="flex items-center" href="#" title="home">
             {/* Next/Image */}
             <IoLogoReact className="mr-2 text-3xl text-cyan-400" />
-            <span className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="text-3xl font-bold bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
               Dash
             </span>
           </Link>
