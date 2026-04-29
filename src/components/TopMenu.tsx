@@ -1,5 +1,11 @@
 import React from "react";
-import { CiBellOn, CiChat1, CiMenuBurger, CiSearch } from "react-icons/ci";
+import {
+  CiBellOn,
+  CiChat1,
+  CiMenuBurger,
+  CiSearch,
+  CiShoppingBasket,
+} from "react-icons/ci";
 
 export const TopMenu = () => {
   return (
@@ -33,9 +39,10 @@ export const TopMenu = () => {
           <button className="flex items-center justify-center w-10 h-10 rounded-xl border border-slate-700 bg-slate-800 hover:bg-cyan-900/30 hover:text-cyan-400 hover:border-cyan-800 transition-all">
             <CiChat1 size={25} />
           </button>
-          <button className="flex items-center justify-center w-10 h-10 rounded-xl border border-slate-700 bg-slate-800 hover:bg-cyan-900/30 hover:text-cyan-400 hover:border-cyan-800 transition-all relative">
-            <CiBellOn size={25} />
-            <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
+          <button className="flex items-center justify-center rounded-xl p-2 border border-slate-700 bg-slate-800 hover:bg-cyan-900/30 hover:text-cyan-400 hover:border-cyan-800 transition-all relative">
+            <span className="text-sm font-bold mr-2 text-white">10</span>
+            <CiShoppingBasket size={25} className="text-white" />
+            {/* <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span> */}
           </button>
         </div>
       </div>
