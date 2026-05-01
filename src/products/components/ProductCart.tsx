@@ -7,6 +7,7 @@ import { Star } from "./Star";
 import {
   addProductToCart,
   removeProductFromCart,
+  removeItemFromCart,
 } from "@/shopping-cart/actions/actions";
 import { useRouter } from "next/navigation";
 
@@ -27,7 +28,7 @@ export const ProductCard = ({ id, name, price, rating, image }: Props) => {
   };
 
   const onRemoveProductFromCart = (id: string) => {
-    removeProductFromCart(id);
+    removeItemFromCart(id);
     router.refresh();
   };
 
