@@ -6,8 +6,7 @@ import { IoAddCircleOutline, IoTrashOutline } from "react-icons/io5";
 import { Star } from "./Star";
 import {
   addProductToCart,
-  removeProductFromCart,
-  removeItemFromCart,
+  removeSingleItemFromCart,
 } from "@/shopping-cart/actions/actions";
 import { useRouter } from "next/navigation";
 
@@ -28,7 +27,7 @@ export const ProductCard = ({ id, name, price, rating, image }: Props) => {
   };
 
   const onRemoveProductFromCart = (id: string) => {
-    removeItemFromCart(id);
+    removeSingleItemFromCart(id);
     router.refresh();
   };
 
