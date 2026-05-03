@@ -1,6 +1,7 @@
 "use client";
 
 import { setCookie } from "cookies-next";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 interface Props {
@@ -8,22 +9,34 @@ interface Props {
   tabOptions?: number[];
 }
 
+const tabOptionsToColumns: { [key: number]: string } = {
+  1: "grid-cols-1",
+  2: "grid-cols-2",
+  3: "grid-cols-3",
+  4: "grid-cols-4",
+  5: "grid-cols-5",
+  6: "grid-cols-6",
+  7: "grid-cols-7",
+};
+
 export const TabBar = ({
   currentTab = 1,
-  tabOptions = [1, 2, 3, 4],
+  tabOptions = [1, 2, 3, 4, 5, 6, 7],
 }: Props) => {
   const [selected, setSelected] = useState(currentTab);
+  const router = useRouter();
 
   const onTabSelected = (tab: number) => {
     setSelected(tab);
     setCookie("tab-selected", tab.toString());
+    router.refresh();
   };
 
   return (
     <div
-      className={`  
+      className={`
         grid w-full space-x-2 rounded-xl bg-slate-800 p-2
-        ${"grid-cols-" + tabOptions.length}
+        ${tabOptionsToColumns[tabOptions.length] ?? "grid-cols-4"}
         `}
     >
       {tabOptions.map((tab) => (

@@ -32,8 +32,12 @@ export default async function CartPage() {
   const cart = JSON.parse(cookieStore.get("cart")?.value ?? "{}") as {
     [id: string]: number;
   };
-
   const productsInCart = getProductInCart(cart);
+
+  const totalToPay = productsInCart.reduce(
+    (prev, current) => current.product.price * current.quantity + prev,
+    0,
+  );
 
   return (
     <div>
@@ -48,7 +52,23 @@ export default async function CartPage() {
         </div>
         <div className="flex flex-col w-full sm:w-4/12">
           {/* Widget */}
-          <WidgetItem></WidgetItem>
+          <WidgetItem title="Resumen de orden">
+            <div className="mt-2 flex justify-center gap-4">
+              <h3 className="text-3xl font-bold text-gray-200">
+                ${totalToPay.toFixed(2)}
+              </h3>
+            </div>
+            <div className="flex justify-between">
+              <span>Impuesto 19%:</span>
+              <span>${(totalToPay * 0.19).toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Total:</span>
+              <span className="text-2xl font-bold">
+                ${(totalToPay * 1.19).toFixed(2)}
+              </span>
+            </div>
+          </WidgetItem>
         </div>
       </div>
     </div>
