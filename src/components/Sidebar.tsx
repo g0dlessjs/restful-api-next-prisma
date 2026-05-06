@@ -10,6 +10,7 @@ import {
 } from "react-icons/io5";
 import { IoLogoReact } from "react-icons/io5";
 import { SidebarItem } from "./SidebarItem";
+import { auth } from "@/helpers/auth";
 
 const menuItem = [
   {
@@ -39,7 +40,9 @@ const menuItem = [
   },
 ];
 
-export const Sidebar = () => {
+export const Sidebar = async () => {
+  const session = await auth();
+
   return (
     <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r border-slate-700 bg-gradient-to-b from-slate-900 to-slate-800 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
       <div>
@@ -55,16 +58,18 @@ export const Sidebar = () => {
         </div>
 
         <div className="mt-8 text-center">
-          {/* Next/Image */}
           <Image
-            src="https://avatars.githubusercontent.com/u/128999319?s=400&u=c76b83328ae8be8e8d1619f8f4cf9ee76de1d96b&v=4"
-            alt=""
+            src={
+              session?.user?.image ??
+              "https://avatars.githubusercontent.com/u/128999319?s=400&v=4"
+            }
+            alt="Profile picture"
             className="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28 ring-4 ring-cyan-900/50"
-            width={50}
-            height={50}
+            width={150}
+            height={150}
           />
           <h5 className="hidden mt-4 text-xl font-semibold text-slate-200 lg:block">
-            Raton Perez
+            {session?.user?.name ?? "No Name"}
           </h5>
           <span className="hidden text-slate-400 lg:block">Admin</span>
         </div>
