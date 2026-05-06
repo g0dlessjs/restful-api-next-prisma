@@ -1,3 +1,4 @@
+import { auth } from "@/helpers/auth";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -7,10 +8,10 @@ import {
   IoLogOut,
   IoMedical,
   IoWalletOutline,
+  IoLogoReact,
 } from "react-icons/io5";
-import { IoLogoReact } from "react-icons/io5";
+
 import { SidebarItem } from "./SidebarItem";
-import { auth } from "@/helpers/auth";
 
 const menuItem = [
   {
