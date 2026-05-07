@@ -9,6 +9,7 @@ import {
   IoMedical,
   IoWalletOutline,
   IoLogoReact,
+  IoPerson,
 } from "react-icons/io5";
 
 import { SidebarItem } from "./SidebarItem";
@@ -38,6 +39,11 @@ const menuItem = [
     path: "/dashboard/products",
     icon: <IoWalletOutline size={30} />,
     title: "Productos",
+  },
+  {
+    path: "/dashboard/profile",
+    icon: <IoPerson size={30} />,
+    title: "Profile",
   },
 ];
 
