@@ -14,16 +14,11 @@ export default function ProfilePage() {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-col">
-        <span className="text-3xl mb-10 block text-center">Profile</span>
+        <span className="text-3xl mb-10 block text-center">
+          Profile por Client Side
+        </span>
       </div>
       <div className="flex  flex-col items-center gap-15 justify-center">
-        <Image
-          src={session?.user?.image!}
-          alt="Profile"
-          width={150}
-          height={150}
-          className="rounded-full"
-        />
         <span className="text-3xl mb-5 text-center">{session?.user?.name}</span>
         <span className="text-3xl mb-5 text-center">
           {session?.user?.email}
