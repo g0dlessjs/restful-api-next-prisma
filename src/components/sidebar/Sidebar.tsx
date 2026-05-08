@@ -1,4 +1,4 @@
-import { auth } from "@/helpers/auth";
+import { auth } from "@/app/api/auth/[...nextauth]/route";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -50,6 +50,8 @@ const menuItem = [
 
 export const Sidebar = async () => {
   const session = await auth();
+  const userName = session?.user?.name ?? "No Name";
+  const userRoles = session?.user.roles ?? ["client"];
 
   return (
     <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r border-slate-700 bg-gradient-to-b from-slate-900 to-slate-800 transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
@@ -74,9 +76,11 @@ export const Sidebar = async () => {
             height={150}
           />
           <h5 className="hidden mt-4 text-xl font-semibold text-slate-200 lg:block">
-            {session?.user?.name ?? "No Name"}
+            {userName}
           </h5>
-          <span className="hidden text-slate-400 lg:block">Admin</span>
+          <span className="hidden text-slate-400 capitalize lg:block">
+            {userRoles.join(", ")}
+          </span>
         </div>
 
         <ul className="space-y-2 tracking-wide mt-8">

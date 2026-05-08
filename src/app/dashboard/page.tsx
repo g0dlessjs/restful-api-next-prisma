@@ -1,5 +1,5 @@
 import { WidgetItem } from "@/components";
-import { auth } from "@/helpers/auth";
+import { auth } from "@/app/api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 
 export default async function DashboardPage() {
@@ -16,10 +16,12 @@ export default async function DashboardPage() {
           <p className="font-bold">{session.user?.name}</p>
           <p className="text-slate-300">{session.user?.email}</p>
         </div>
-        <button className="bg-red-500 text-white px-4 py-2 rounded-2xl hover:cursor-pointer">
-          Logout
-        </button>
       </WidgetItem>
+      <div className="w-full max-w-4xl overflow-x-auto rounded-2xl border border-zinc-700 bg-zinc-900 p-4 shadow-lg">
+        <pre className="text-sm leading-6 text-green-400">
+          <code>{JSON.stringify(session, null, 2)}</code>
+        </pre>
+      </div>
     </div>
   );
 }
