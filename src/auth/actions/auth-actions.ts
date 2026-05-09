@@ -2,7 +2,7 @@ import prisma from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 import { auth } from "@/app/api/auth/[...nextauth]/route";
 
-export const gerUserServerSession = async () => {
+export const getUserServerSession = async () => {
   const session = await auth();
   if (!session) return null;
   return session?.user;

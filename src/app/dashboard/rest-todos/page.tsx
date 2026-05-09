@@ -4,7 +4,7 @@ export const revalidate = 0;
 import { Metadata } from "next";
 import prisma from "@/lib/prisma";
 import { NewTodo, TodosGrid } from "@/todos";
-import { gerUserServerSession } from "@/auth/actions/auth-actions";
+import { getUserServerSession } from "@/auth/actions/auth-actions";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default async function RestTodosPage() {
-  const user = await gerUserServerSession();
+  const user = await getUserServerSession();
 
   if (!user) {
     redirect("/api/auth/signin");

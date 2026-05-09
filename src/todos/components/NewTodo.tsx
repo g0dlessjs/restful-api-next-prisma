@@ -6,18 +6,20 @@ import { useState } from "react";
 // import { useRouter } from "next/navigation";
 
 import { addTodo, deleteCompleted } from "../actions/todo-actions";
+import { createTodo } from "../helpers/todos";
+import { useRouter } from "next/navigation";
 
 export const NewTodo = () => {
+  const router = useRouter();
   const [description, setDescription] = useState("");
-
-  // const router = useRouter();
 
   const onSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (description.trim().length === 0) return;
 
-    await addTodo(description);
+    await createTodo(description);
+    router.refresh();
 
     setDescription("");
   };
