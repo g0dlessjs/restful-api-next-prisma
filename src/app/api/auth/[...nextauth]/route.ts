@@ -36,8 +36,8 @@ export const authOptions: NextAuthConfig = {
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
         const user = await singInEmailPassword(
-          credentials!.email,
-          credentials!.password,
+          credentials!.email as string,
+          credentials!.password as string,
         );
 
         if (user) {

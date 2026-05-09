@@ -1,5 +1,12 @@
 import prisma from "@/lib/prisma";
 import bcrypt from "bcryptjs";
+import { auth } from "@/app/api/auth/[...nextauth]/route";
+
+export const gerUserServerSession = async () => {
+  const session = await auth();
+  if (!session) return null;
+  return session?.user;
+};
 
 export const singInEmailPassword = async (email: string, password: string) => {
   if (!email || !password) return null;
